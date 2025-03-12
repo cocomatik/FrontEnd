@@ -3,6 +3,7 @@ document.getElementById('emailForm').addEventListener('submit', async function(e
 
     const loginBtn= document.getElementById("loginBtn");
   
+    loginBtn.style.backgroundColor="gray"
 
     const email = document.getElementById('email').value;
     localStorage.setItem("userEmail", email);
