@@ -179,6 +179,9 @@ form {
  #veryfy{
   display: none;
  }
+ #OtpVerfy{
+  display: none;
+ }
 .card {
   width: 330px;
   height: 80px;
