@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Main login-otp-page conttener  */
+#login-otp-page{
+width: 100%;
+height: 100vh;
+background-color:rgb(208, 208, 208);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 5px;
+
+}
+/* <!-- Email login page --> */
+
+#EmailLoginBox{
+width: 70%;
+height: 70%;
+background-color: rgb(255, 255, 255);
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+border-radius: 20px;
+display: flex;
+/* justify-content: center; */
+align-items: center;
+overflow: hidden;
+/* display: none;  */
+
+}
+
+.add-box{
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.add-text-box{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.add-text1{
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-text2{
+    color:rgb(101, 101, 101);
+    margin-top:15px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-gif-box{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+.login-gif{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.email-box{
+    width: 60%;
+    height: 100%; 
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+
+}
+.back-icon-box{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 5%;
+    font-size: 30px;
+}
+.wrapper{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 90%;
+        /* background-color: #ff9a9e; */
+  }
+  
+  .input-field {
+    position: relative;
+    border-bottom: 2px solid #000000;
+    margin: 15px 0;
+  }
+  
+  .input-field label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.15s ease;
+  }
+  
+  .input-field input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #000000;
+  }
+  
+  .input-field input:focus~label,
+  .input-field input:valid~label {
+    font-size: 0.8rem;
+    top: 10px;
+    transform: translateY(-120%);
+  }
+  
+  
+  
+  #loginBtn{
+    background-color:rgb(254, 134, 143);
+    color: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    transition: 0.3s ease;
+
+  }
+  
+  #warnig {
+    margin: 10px;
+    font-size: small;
+    display: none;
+  }
+  
+ /* From Uiverse.io by akshat-patel28 */ 
+ #veryfy{
+  display: none;
+ }
+.card {
+  width: 330px;
+  height: 80px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+}
+.wave {
+  position: absolute;
+  transform: rotate(90deg);
+  left: -31px;
+  top: 32px;
+  width: 80px;
+  fill: #04e4003a;
+}
+.icon-container {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #04e40048;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+.icon {
+  width: 17px;
+  height: 17px;
+  color: #269b24;
+}
+.message-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+.message-text,
+.sub-text {
+  margin: 0;
+  cursor: default;
+}
+.message-text {
+  color: #269b24;
+  font-size: 17px;
+  font-weight: 700;
+}
+.sub-text {
+  font-size: 14px;
+  color: #555;
+}
+.cross-icon {
+  width: 18px;
+  height: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+
+  .term-privacy-box{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 10px;
+    font-size: 15px;
+    color: gray;
+  }
+   span{
+    color: rgb(58, 58, 255);
+  }
+ /* <!-- ---------------------OTP login page-------------------------- --> */
+#OtpLoginBox{
+width: 70%;
+height: 70%;
+background-color: rgb(255, 255, 255);
+border-radius: 20px;
+display: flex;
+/* justify-content: center; */
+align-items: center;
+overflow: hidden;
+display: none;
+
+background-image: url(/data/bglogo2.gif);
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+.otp-box{
+    width: 60%;
+    height: 100%; 
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+.otp-input-box{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.emailid-show-box{
+  width: 100%;
+  font-size: 12px;
+  color: gray;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.otp-enter-box{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 20px;
+  }
+  
+ 
+  
+  .otp-inputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  
+  }
+  
+  .otp-inputs input {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+   
+  }
+
+
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  
+  #alertMsg{
+    color: red;
+    font-size: 12px;
+    text-align: center;
+    margin: 5px;
+  }
+  .buttons {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;  
+  }
+  
+  button {
+    padding: 10px 60px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #backButton {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid gray;
+  }
+  
+  #verifyButton {
+    background-color:rgb(254, 134, 143);
+
+    color: white;
+  }
+
+  .timer-otp-box{
+    width: 100%;
+    height: 5%;
+    font-size: 12px;
+    color: gray;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+  }
+#resetOtpBtn{
+  color: black;
+  font-size: 15px;
+  display: none;
+}
+
+
+#OTPmsg{
+  color: red;
+}
+  /* mediascreen */
+  @media only screen and (max-width: 950px) {
+    #EmailLoginBox , #OtpLoginBox{
+        width: 95%;
+        height: 80vh;}
+    .add-box{
+    display: none;}
+  .email-box ,.otp-box{
+  width: 100%;
+  }
+}
