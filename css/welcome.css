@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Questrial", sans-serif;
+}
+
+:root {
+    --primary: #f6d5d5;
+    --secondary: #d4a5a5;
+    --accent: #b76e79;
+    --text: #4a4a4a;
+}
+.brand-type-container-title{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Questrial", sans-serif;
+}
+
+.brand-type-container{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items:start;
+    justify-content: space-around;
+    padding: 10px;
+
+}
+
+.brand-type-box{
+    width: 45%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.brand-type-img{
+    width: 100%;
+    height: 90%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+}
+.brand-type-name{
+    font-size: 25px;
+}
+#jewelryIMG{
+    background-image: url(/data/jewelry-brand-img\ .jpg);
+}
+#CosmeticsIMG{
+    background-image: url(/data/cosmetics-img.jpg);
+}
+
+.brand-type-box:hover {
+    transform: scale(1.07);
+}

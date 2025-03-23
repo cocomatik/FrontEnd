@@ -62,7 +62,7 @@ document.getElementById('verifyButton').addEventListener('click', async () => {
 
     // API Request
     try {
-        const response = await fetch('https://cocomatik-b.vercel.app/accounts/login/', {
+        const response = await fetch('https://cocomatik-b.vercel.app/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, otp })

@@ -1,0 +1,98 @@
+@media only screen and (max-width: 600px) {
+
+/* welcomepage  */
+
+.brand-type-container{
+height: 300px;
+}
+
+/* ccosmetics page */
+.search-box{
+    display: none;
+}
+.InputContainer{
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+}
+.mobileview-search-container{
+    display: flex;
+}
+.logo-box{
+    width: 35%;
+    padding-left: 10px;
+}
+.btns-icons{
+    width: 65%;
+   font-size: 15px;
+   display: flex;
+
+   justify-content: end;
+
+}
+.btns-name{
+    font-size: 12px;
+}
+.ad-container{
+
+    height: 150px;
+
+    }
+.category-container{
+    display: none;
+}
+.product-type-container{
+    gap: 10px;
+    height:150px ;
+}
+.product-type-box{
+    width: 150px;
+}
+.product-name{
+    font-size: 15px;
+}
+.products-box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+    gap: 10px;
+}
+#products-card{
+    width: 200px;
+    height: 300px;
+}
+
+
+/* footer */
+
+.footer{
+    display: flex;
+   flex-direction: column; 
+   justify-content: start;
+   align-items: start;
+   gap: 50px;
+   padding: 30px;
+}
+.link-box{
+    width: 100%;
+    margin-top: 0px;
+    height: auto;
+    gap: 20px;
+}
+
+.link-title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.footer-medialink-box{
+flex-direction: column;
+}
+.medial-link-box , .policy-link-box{
+    width: 100%;
+    gap: 10px;
+}
+}
+
