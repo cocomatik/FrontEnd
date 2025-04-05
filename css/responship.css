@@ -5,7 +5,27 @@
 .brand-type-container{
 height: 300px;
 }
+.special-type-menu-box{
+    width: 100%;
+    font-size: 15px;
+}
 
+.add-container{
+    height: 300px;
+}
+
+.add-box-main{
+    width: 90%;
+}
+.add-container2{
+padding: 5px;
+    gap: 10px;
+}
+.add-box{
+    width:45%;
+    height: 200px;
+
+}
 /* ccosmetics page */
 .search-box{
     display: none;

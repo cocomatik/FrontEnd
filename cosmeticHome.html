@@ -27,9 +27,9 @@
     <div class="btns-icons">
     <div class="btns-box">
     <a href=""><i class='bx bx-heart'></i> <div class="btns-name">Wishlist</div></a>
-    <a href=""><i class='bx bx-cart-alt' ></i><div class="btns-name">Cart</div></a>
-    <a href=""><i class='bx bxs-user'></i><div class="btns-name">Account</div></a>
-    </div>
+    <a href="" id="AccountBTN"><i class='bx bxs-user'></i><div class="btns-name">Account</div></a>
+    <a href="/Login-otp.html" id="LoginBTN"><i class='bx bx-lock-open-alt'></i><div class="btns-name">Login</div></a>
+</div>
     </div>
  </section>
 
@@ -44,16 +44,18 @@
  <!--------------------------------CATAGORY ------------------------------------------------>
  <section class="category-container">
     <div class="category-list">Shop <i class='bx bx-chevron-down'></i>
-        <div class="dropdown">
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a></div>
+
+    <div class="dropdown">
+        <a href="#">Cosmetics</a>
+        <a href="#">jewelry</a>
     </div>
+</div>
 
     <div class="category-list">New <i class='bx bx-chevron-down'></i>
         <div class="dropdown">
         <a href="#">Latest Arrivals</a>
-        <a href="#">Trending</a></div>
+        <a href="#">Trending</a>
+    </div>
     </div>
 
     <div class="category-list">Offers <i class='bx bx-chevron-down'></i>
@@ -81,13 +83,13 @@
 
 <section class="product-type-container">
 
-    <div class="product-type-box"><div class="product-type"><img src="/data/face.jpg"  alt=""></div> <div class="product-name">Face </div></div>
-    <div class="product-type-box"><div class="product-type"><img src="/data/eye.jpg" alt=""></div> <div class="product-name">Eye </div></div>
-    <div class="product-type-box"><div class="product-type"><img src="/data/brush.jpeg"  alt=""></div> <div class="product-name">Makeup Brush </div></div>
-    <div class="product-type-box"><div class="product-type"><img src="/data/lip.jpg" alt="">  </div> <div class="product-name">Lips </div></div>
-    <div class="product-type-box"><div class="product-type"><img src="/data/skin.jpg" alt=""> </div>  <div class="product-name">Skincare </div></div>
-    <div class="product-type-box"><div class="product-type"><img src="/data/nail.jpeg" alt=""></div> <div class="product-name">Nail </div></div>
-    <div class="product-type-box"><div class="product-type"><img src="/data/hair.jpeg" alt=""></div> <div class="product-name">Hair </div></div>
+    <div class="product-type-box" id=""><div class="product-type"><img src="/data/face.jpg"  alt=""></div> <div class="product-name">Face </div></div>
+    <div class="product-type-box" id=""><div class="product-type"><img src="/data/eye.jpg" alt=""></div> <div class="product-name">Eye </div></div>
+    <div class="product-type-box" id=""><div class="product-type"><img src="/data/brush.jpeg"  alt=""></div> <div class="product-name">Makeup Brush </div></div>
+    <div class="product-type-box" id=""><div class="product-type"><img src="/data/lip.jpg" alt="">  </div> <div class="product-name">Lips </div></div>
+    <div class="product-type-box" id="Skincare"><div class="product-type"><img src="/data/skin.jpg" alt=""> </div>  <div class="product-name">Skincare </div></div>
+    <div class="product-type-box" id=""><div class="product-type"><img src="/data/nail.jpeg" alt=""></div> <div class="product-name">Nail </div></div>
+    <div class="product-type-box" id="Haircare"><div class="product-type"><img src="/data/hair.jpeg" alt=""></div> <div class="product-name">Hair </div></div>
     
 </section>
 
@@ -97,6 +99,9 @@
 <!-------------------------------- skin product type ------------------------------------------------>
 <div class="section-title"  >Fragrance</div>
 <section class="products-box-container" id="products-container2"></section>
+<!-------------------------------- Color Cosmetics type ------------------------------------------------>
+<div class="section-title"  >Color Cosmetics</div>
+<section class="products-box-container" id="products-container3"></section>
 
 
 <!-------------------------------- footer------------------------------------------------>
@@ -145,21 +150,16 @@
 <div class="policy-link-box">
 <a href="">Terms of Use </a>  
 <a href="">PricyPolicy</a>  
-<a href="">License </a>  
+<a href="">Licen
+    se </a>  
 
 </div>
 
 </section>
 
 
-
-    
-
-
-
-
-
-<script src="/js/skinProduct.js"></script>
-<script src="/js/Fragrance.js"></script>
+<script src="/js/productApi.js"></script>
+<script src="/js/cosmeticHome.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
