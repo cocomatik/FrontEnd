@@ -1,0 +1,31 @@
+name: Deploy Static Site to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy Files to VPS
+        run: |
+          scp -P ${{ secrets.SSH_PORT }} -r ./* 
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.VPS_PATH }}
+            - name: Reload Nginx
+            run: |
+              ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+              "sudo systemctl reload nginx"
+          
