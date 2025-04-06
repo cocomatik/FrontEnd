@@ -20,12 +20,27 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy Files to VPS
+      - name: Zip project files
         run: |
-          scp -P ${{ secrets.SSH_PORT }} -r ./* 
+          zip -r site.zip . -x ".git/*" ".github/*" "README.md"
+
+      - name: Upload zip to VPS
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            "mkdir -p ${{ secrets.VPS_PATH }}"
+
+          scp -P ${{ secrets.SSH_PORT }} site.zip \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.VPS_PATH }}
-            - name: Reload Nginx
-            run: |
-              ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-              "sudo systemctl reload nginx"
-          
+
+      - name: Unzip & Clean on VPS
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            cd ${{ secrets.VPS_PATH }}
+            unzip -o site.zip
+            rm site.zip
+          EOF
+
+      - name: Reload Nginx
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+          "sudo systemctl reload nginx"
