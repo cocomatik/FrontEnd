@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", async () => {
     const apiUrl = "https:///engine.cocomatik.com/api/pocos/";
 
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     productCard.addEventListener("click", () => {
                         localStorage.setItem("productDetailsId", JSON.stringify({ sku: product.sku }));
                         console.log("Product ID stored:", product.sku);
-                        window.location.href=("productDetails.html")
+                        window.location.href=("page/productDetails.html")
                     });
 
                     container.appendChild(productCard);

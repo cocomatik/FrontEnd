@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 OtpVerfy.style.display = "flex";
 
                 setTimeout(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "../index.html";
                 }, 3000);
             } else {
                 otpMsg.textContent = data.message || 'Invalid OTP';

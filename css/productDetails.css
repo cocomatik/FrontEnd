@@ -134,6 +134,7 @@ color: gray;
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    cursor: default;
 }
 #buyNow{
     border: 2px solid var(--accent);
@@ -142,4 +143,12 @@ color: gray;
 #addtoCard{
 background-color: var(--accent);
 color: white;
+}
+#productDetailMsg{
+    width: 80%;
+    padding: 5px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: gray;
 }

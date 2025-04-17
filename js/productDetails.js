@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const productDetails = JSON.parse(localStorage.getItem("productDetailsId"));
+const productDetails = JSON.parse(localStorage.getItem("productDetailsId"));
     
     if (!productDetails || !productDetails.sku) {
         console.error("Product ID not found in localStorage");
@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
     
     const productId = productDetails.sku;
+
     const apiUrl = "https://engine.cocomatik.com/api/pocos";
     
     try {
@@ -41,59 +42,61 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (error) {
         console.error("Error fetching product data:", error);
     }
+
+
+
+    
+    let addtoCard = document.getElementById("addtoCard");
+    const productDetailMsg  =document.getElementById("productDetailMsg");
+
+
+    addtoCard.addEventListener("click", function () {
+        addtoCard.style.backgroundColor="gray"
+        setTimeout(() => {
+           addtoCard.style.backgroundColor=""
+          }, 1500);
+          
+        const addcartId = productId;
+        const quantity = 1;
+
+        console.log(addcartId, quantity);
+
+        const token = localStorage.getItem("authToken");
+
+        // Create the products array dynamically
+        const products = [
+            { sku: addcartId, quantity: quantity } // Use the variables directly
+        ];
+
+        fetch('https://engine.cocomatik.com/api/orders/cart/add/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `token ${token}`
+            },
+            body: JSON.stringify({ products })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(result => {
+            console.log('Success:', result);
+            productDetailMsg.innerHTML="Products added to cart successfully "
+            
+            setTimeout(function(){
+            productDetailMsg.innerHTML=""
+            window.location.href=("cart.html")
+        },1400)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            productDetailMsg.innerHTML="Failed to add products to the cart. Please try again."
+            setTimeout(function(){
+                productDetailMsg.innerHTML=""
+            },1400)
+        });
+    });
 });
-// // addtoCard
-// let token = localStorage.getItem("authToken");
-
-// let addtoCard = document.getElementById("addtoCard");
-
-// if (!addtoCard) {
-//     console.error("Add to Cart button not found in the DOM.");
-//     return;
-// }
-
-// addtoCard.addEventListener("click", async function () {
-//     if (!token || token.trim() === "") {
-//         console.error("Auth token not found. Please log in.");
-//         return;
-//     }
-
-//     const productDetails = JSON.parse(localStorage.getItem("productDetailsId"));
-//     if (!productDetails || !productDetails.sku) {
-//         console.error("Product ID not found in localStorage");
-//         return;
-//     }
-
-//     const productId = productDetails.sku;
-//     const apiUrl = "https://engine.cocomatik.com/api/orders/cart/add";
-
-//     try {
-//         const response = await fetch(apiUrl, {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Authorization": `Bearer ${token}`
-//             },
-//             body: JSON.stringify({ productId })
-//         });
-
-//         if (!response.ok) {
-//             throw new Error("Failed to add product to cart");
-//         }
-
-//         let result;
-//         try {
-//             result = await response.json();
-//         } catch (jsonError) {
-//             console.error("Failed to parse response JSON:", jsonError);
-//             alert("Unexpected response from the server. Please try again.");
-//             return;
-//         }
-
-//         console.log("Product added to cart successfully:", result);
-//         alert("Product added to cart successfully!");
-//     } catch (error) {
-//         console.error("Error adding product to cart:", error);
-//         alert("An error occurred while adding the product to the cart. Please try again later.");
-//     }
-// });
