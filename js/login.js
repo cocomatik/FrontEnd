@@ -85,6 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (otp.length !== inputs.length) {
             otpMsg.textContent = 'Please enter the complete OTP';
             verifyButton.disabled = false;
+
+            setTimeout(() => {
+                verifyButton.style.backgroundColor = "";
+                otpMsg.textContent = '';
+            }, 3000);
+        
             return;
         }
 
@@ -104,16 +110,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 setTimeout(() => {
                     window.location.href = "../index.html";
+                    verifyButton.style.backgroundColor = "";
                 }, 3000);
             } else {
                 otpMsg.textContent = data.message || 'Invalid OTP';
                 verifyButton.disabled = false;
+                setTimeout(() => {
+                    verifyButton.style.backgroundColor = "";
+                    otpMsg.textContent = '';
+                }, 3000);
+            
             }
         } catch (error) {
             console.error('Error:', error);
             otpMsg.textContent = 'Network error, please try again';
-            verifyButton.style.backgroundColor = "";
-            verifyButton.disabled = false;
+            setTimeout(() => {
+                verifyButton.style.backgroundColor = "";
+                otpMsg.textContent = '';
+            }, 3000);
+        
         }
     });
 });
