@@ -1,5 +1,6 @@
 const token = localStorage.getItem("authToken");
-console.log(token)
+console.log(token);
+
 fetch('https://engine.cocomatik.com/api/orders/cart/', {
   method: 'GET',
   headers: {
@@ -9,10 +10,10 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
 })
 .then(response => response.json())
 .then(data => {
-  const cartContainer = document.getElementById('cart-Container');
+  const cartContainer = document.getElementById('CartItemBox');
   cartContainer.innerHTML = ''; // Clear "Loading..."
 
-  const cartItems = data.items || data; // Support both direct array or nested
+  const cartItems = data.items || data;
 
   if (!Array.isArray(cartItems)) {
     cartContainer.innerHTML = 'Unexpected data format.';
@@ -32,10 +33,24 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
     itemDiv.className = 'item-box';
 
     itemDiv.innerHTML = `
-      <strong>${product.name}</strong><br>
-      <small><b>SKU:</b> ${item.sku}</small><br>
-      <small><b>Quantity:</b> ${item.quantity}</small><br>
-      <small><b>Price:</b> $${product.price.toFixed(2)}</small>
+      <div id="itemImgBox">
+
+
+      <img src="/data2/hair2.png" alt="${product.title}" width="150">
+
+        
+      </div>
+      <div id="itemDetailsBox">
+        <div id="itemNAme">Name: ${product.name}</div>
+        <div id="itemDetail">${product.title}</div>
+        <div id="itemMRP">MRP: $${product.price.toFixed(2)}</div>
+        <div><b>SKU:</b> ${item.sku}</div>
+        <div><b>Quantity:</b> ${item.quantity}</div>
+      </div>
+      <div id="itemPriceBox">
+        <div id="itemPrice"> $${(product.price * item.quantity).toFixed(2)}</div>
+        <div id="placeOder">Place Order</div>
+      </div>
     `;
 
     cartContainer.appendChild(itemDiv);
@@ -43,5 +58,5 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
 })
 .catch(error => {
   console.error('Error fetching cart data:', error);
-  document.getElementById('cart-items').innerHTML = '❌ Failed to load cart data.';
+  document.getElementById('CartItemBox').innerHTML = '❌ Failed to load cart data.';
 });

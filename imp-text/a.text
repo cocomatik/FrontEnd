@@ -20,3 +20,7 @@
     <div id="special-type-product-price">$ 40.00</div>
     </div>   
 </div> -->
+
+
+
+      <img src="https://res.cloudinary.com/cocomatik/${product.display_image}" alt="${product.title}" width="100">
