@@ -38,8 +38,15 @@ document.addEventListener("DOMContentLoaded", async function () {
                     <button id="add-to-cart">Add to Cart</button>
                 </div>
             `;
-
+    // Add click event to store SKU in local storage
+    productCard.addEventListener("click", () => {
+        localStorage.setItem("productDetailsId", JSON.stringify({ sku: product.sku }));
+        console.log("Product ID stored:", product.sku);
+        // window.location.href=("page/productDetails.html")
+        window.location.href=("/page/productDetails.html")
+    });
             productsContainer.appendChild(productCard);
+
         });
     } catch (error) {
         console.error("Error fetching data:", error);
