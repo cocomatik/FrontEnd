@@ -36,8 +36,6 @@
   }
   
 
-
-
   .cart-box{
     width: 90%;
     height: auto;
@@ -172,23 +170,3 @@ height: 25px;
 }
 
 
-@media only screen and (max-width: 601px) {
-
-
-  .item-box {
-      flex-direction: column;
-      height: auto;
-  }
-  
-  .Img-Details-Box{
-      width: 100%;
-  }
-  #itemPriceBox{
-   width: 100%;
-   padding: 10px;
-  flex-direction: row;
-  align-items: space-around;
-  
-  
-  }
-  }
