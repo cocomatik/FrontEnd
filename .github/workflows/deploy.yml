@@ -10,37 +10,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: ✅ Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Setup SSH
+      - name: 🛠️ Setup SSH
         run: |
+          echo "🔐 Setting up SSH access..."
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          echo "✅ SSH setup completed."
 
-      - name: Zip project files
+      - name: 📦 Deploy via rsync
         run: |
-          zip -r site.zip . -x ".git/*" ".github/*" "README.md"
+          echo "📡 Starting rsync to VPS..."
+          rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" \
+            --exclude=".git/" \
+            --exclude=".github/" \
+            --exclude="README.md" \
+            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.VPS_PATH }}
+          echo "✅ Deployment complete."
 
-      - name: Upload zip to VPS
+      - name: 📝 Log & Reload Nginx on VPS
         run: |
+          TIMESTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
+          UNIQUE_ID=$(openssl rand -hex 8)  # Unique identifier for the log file name
+          LOG_PATH="/home/dev/COCOMATIK/FrontEnd/logs/deployment_${UNIQUE_ID}.log"
+          
+          echo "🗂️ Logging deployment details to $LOG_PATH..."
+
+          # Single-line SSH command
           ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "mkdir -p ${{ secrets.VPS_PATH }}"
-
-          scp -P ${{ secrets.SSH_PORT }} site.zip \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.VPS_PATH }}
-
-      - name: Unzip & Clean on VPS
-        run: |
-          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            cd ${{ secrets.VPS_PATH }}
-            unzip -o site.zip
-            rm site.zip
-          EOF
-
-      - name: Reload Nginx
-        run: |
-          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-          "sudo systemctl reload nginx"
+            "mkdir -p /home/dev/COCOMATIK/FrontEnd/logs && \
+            echo '----- Deployment at $TIMESTAMP -----' | tee -a $LOG_PATH && \
+            echo 'Deployed from GitHub Actions' | tee -a $LOG_PATH && \
+            echo 'Restarting Nginx...' | tee -a $LOG_PATH && \
+            sudo systemctl reload nginx 2>&1 | tee -a $LOG_PATH && \
+            echo '✅ Deployment completed at $TIMESTAMP' | tee -a $LOG_PATH && \
+            echo '' | tee -a $LOG_PATH"
