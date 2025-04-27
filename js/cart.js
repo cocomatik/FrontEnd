@@ -40,11 +40,10 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
       <section id="itemImgBox">
         <img src="/data2/hair2.png" alt="${product.title}" width="150">
       </section>
-
-
+      
 
       <section id="itemDetailsBox">
-        <div id="itemNAme">${product.name}</div>
+        <div id="itemNAme">Nam: ${product.name}</div>
         <div id="itemDetail">${product.description}</div>
         <div id="itemMRP">MRP: $${product.mrp.toFixed(2)}</div>
         <div id="price">price: $${product.price}</div>
