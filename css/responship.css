@@ -129,7 +129,12 @@ margin-top: 20px;
     align-items: center;
 }
 
-/* cart page */
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
 
 .item-box {
     flex-direction: column;
@@ -144,10 +149,7 @@ margin-top: 20px;
  padding: 10px;
 flex-direction: row;
 align-items: space-around;
-background-color: aqua;
-
-}
 
 
 }
-
+}
