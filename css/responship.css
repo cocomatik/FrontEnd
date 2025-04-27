@@ -38,7 +38,7 @@
 
 
 /* cart box */
-.item-box {flex-direction: column;height: auto;}
+.item-box {flex-direction: column;height: auto; border-radius: 10px;}
 .Img-Details-Box{width: 100%;}
 #itemImgBox{width: 40%;}
 #itemDetailsBox{ width: 55%;}
