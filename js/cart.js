@@ -34,15 +34,15 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
 
     itemDiv.innerHTML = `
 
-   <section class="Img-Details-Box">
+   <div class="Img-Details-Box">
 
    
-      <section id="itemImgBox">
+      <div id="itemImgBox">
         <img src="/data2/hair2.png" alt="${product.title}" width="150">
-      </section>
+      </div>
       
 
-      <section id="itemDetailsBox">
+      <div id="itemDetailsBox">
         <div id="itemNAme">Namooo: ${product.name}</div>
         <div id="itemDetail">${product.description}</div>
         <div id="itemMRP">MRP: $${product.mrp.toFixed(2)}</div>
@@ -54,14 +54,14 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
           <input type="text" class="quantity" value="${item.quantity}" readonly>
           <button class="increase">+</button>
         </div>
-      </section>
+      </div>
 
-         </section>
+         </div>
 
-      <section id="itemPriceBox">
+      <div id="itemPriceBox">
         <div id="itemPrice"> $${(product.price * item.quantity).toFixed(2)}</div>
         <div id="itemRemove-${item.id}" class="itemRemoveBtn" data-id="${item.id}">Remove</div>
-      </section>
+      </div>
     `;
 
     cartContainer.appendChild(itemDiv);
