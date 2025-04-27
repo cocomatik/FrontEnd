@@ -170,3 +170,25 @@ height: 25px;
   border-radius: 5px;
   padding: 5px;
 }
+
+
+@media only screen and (max-width: 601px) {
+
+
+  .item-box {
+      flex-direction: column;
+      height: auto;
+  }
+  
+  .Img-Details-Box{
+      width: 100%;
+  }
+  #itemPriceBox{
+   width: 100%;
+   padding: 10px;
+  flex-direction: row;
+  align-items: space-around;
+  
+  
+  }
+  }
