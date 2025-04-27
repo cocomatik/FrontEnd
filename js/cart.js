@@ -43,7 +43,7 @@ fetch('https://engine.cocomatik.com/api/orders/cart/', {
       
 
       <div id="itemDetailsBox">
-        <div id="itemNAme">Namooo: ${product.name}</div>
+        <div id="itemNAme">Name: ${product.name}</div>
         <div id="itemDetail">${product.description}</div>
         <div id="itemMRP">MRP: $${product.mrp.toFixed(2)}</div>
         <div id="price">price: $${product.price}</div>
