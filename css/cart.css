@@ -71,6 +71,17 @@
     display: flex;
     gap: 20px;
   }
+  #placeOder{
+    background-color: var(--accent);
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default
+
+  }
   .cart-item-box{
     width: 100%;
   }
