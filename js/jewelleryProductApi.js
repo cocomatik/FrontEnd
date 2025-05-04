@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const apiUrl = "https:///engine.cocomatik.com/api/pojos/";
+    const apiUrl = "https://engine.cocomatik.com/api/pojos/";
 
     try {
         const response = await fetch(apiUrl);
