@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const API_URL = "https://engine.cocomatik.com/api/pocos/";
+    const API_URL = "https://engine.cocomatik.com/api/pojos/";
     const productsContainer = document.getElementById("products-container");
     
     try {
@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log("Selected Category:", selectedCategory);
 
         let categoryName = document.getElementById("categoryName");
-        categoryName.innerHTML = selectedCategory;
+        categoryName.innerHTML = selectedCategory;  
+        
 
         // Clear existing content inside productsContainer
         productsContainer.innerHTML = "";

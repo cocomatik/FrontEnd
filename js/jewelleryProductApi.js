@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const apiUrl = "https:///engine.cocomatik.com/api/pocos/";
+    const apiUrl = "https:///engine.cocomatik.com/api/pojos/";
 
     try {
         const response = await fetch(apiUrl);
@@ -8,9 +8,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Categories and their respective container IDs
         const categories = [
-            { name: "Skincare", containerId: "products-container" },
-            { name: "Fragrances", containerId: "products-container2" },
-            { name: "Color Cosmetics", containerId: "products-container3" }
+            { name: "Wedding Jewellery", containerId: "products-container" },
+            { name: "Pendants", containerId: "products-container2" },
+            { name: "One Gram Golden Jewellery", containerId: "products-container3" },
+            { name: "Nose Rings", containerId: "products-container4" },
+            { name: "Necklace", containerId: "products-container5" },
+            { name: "Imported Jewellery", containerId: "products-container6" },
+            { name: "Finger Rings", containerId: "products-container7" },
+            { name: "Ear Rings", containerId: "products-container8" },
+            { name: "Chains", containerId: "products-container9" },
+            { name: "Bracelets", containerId: "products-container10" },
+            { name: "Bangles", containerId: "products-container11" }
         ];
 
         categories.forEach(({ name, containerId }) => {
@@ -29,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <div id="products-dtls">
                             <h3 id="product-title">${product.title}</h3>
                             <p id="product-category">${product.category}</p>
-                            <p id="product-price">$${product.price}</p>
+                            <p id="product-price">₹${product.price}</p>
                             <button id="add-to-cart">Add to Cart</button>
                         </div>
                     `;

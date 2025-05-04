@@ -4,6 +4,11 @@ let Cosmetics = document.getElementById("Cosmetics");
 Cosmetics.addEventListener("click", function () {
     window.location.href = "cosmeticHome.html";
 });
+let jewelry = document.getElementById("jewelry");
+
+jewelry.addEventListener("click", function () {
+    window.location.href = "jewelleryHome.html";
+});
 
 document.addEventListener("DOMContentLoaded", async function () {
     const apiUrl = "https://engine.cocomatik.com/api/home/bestsellers";
