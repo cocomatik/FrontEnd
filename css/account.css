@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Questrial", sans-serif;
+}
+
+:root {
+    --primary: #f6d5d5;
+    --secondary: #d4a5a5;
+    --accent: #b76e79;
+    --text: #4a4a4a;
+    --background:white;
+}
+body{
+    background-color: rgb(229, 229, 229);
+}
+
+#user-profile-Container{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-profile-Box{
+    width: 90%;
+    height: 95%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+.sidebar{
+    width: 25%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.user-about-box{
+    width: 100%;
+    height: 20%;
+    background-color: white;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 3px;
+}
+.user-photo-box{
+width: 40%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.user-name-box{
+width: 60%;
+height: 100%;
+display: flex;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+gap: 1px;
+font-weight: 50;
+color: gray;
+}
+#userName{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.user-oder-box{
+width: 100%;
+height: 10%;
+background-color: white; 
+display: flex;
+align-items: center;
+align-items: center;
+border-bottom: 0.5px solid gray;
+
+}
+
+.user-icon-box{
+width: 30%;
+height: 100%;
+display: flex;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.user-text-box{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bolder;
+    color: gray;
+}
+.user-arrow-box{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: gray;
+}
+
+.user-Account-box{
+    width: 100%;
+    height: 10%;
+    background-color: white; 
+    display: flex;
+    align-items: center;
+    align-items: center;
+
+    
+}
+.user-ac-mange-box{
+    width: 100%;
+    height: 30%;
+    background-color: white; 
+    display: flex;
+    justify-content: end;
+    border-bottom: 0.5px solid gray;
+
+}
+
+.user-ac-mange{
+    display: flex;
+    flex-direction: column;  
+    gap: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 70%;
+    width: 60%;
+    margin-top: 10px;
+}
+.user-Logout-box{
+    width: 100%;
+    height: 10%;
+    background-color: white; 
+    display: flex;
+    align-items: center;
+    align-items: center;
+}
+
+
+/* .-------------main-content------------ */
+.main-content{
+    width: 73%;
+    height: 100%;
+    background-color: white;
+  
+}
+
+
+
+
+.content-section {
+    display: none;
+    padding: 20px;
+    color: var(--text);
+  }
+  
+  .content-section.active {
+    display: block;
+  }
