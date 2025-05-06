@@ -1,68 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Update & Show Profile</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <h1>User Profile</h1>
-  <div id="profileview"></div>
 
+  
   <script>
-    const token = localStorage.getItem("authToken");
-    console.log("Token:", token);
+const token = localStorage.getItem("authToken");
+console.log(token)
 
-    const userData = {
-      name: "adarsha",
-      email: "adarshananda51@gmail.com",
-      phone: "9556796603",
-      age: 22,
-      gender: "male"
-    };
+const userData = {
+  name: "adarsha Nanda",
+  email: "adarshananda51@gmail.com",
+  phone: "9556796603",
+  age: 22,
+  gender: "male"
+};
 
-    // Update the profile using PUT
-    fetch("https://engine.cocomatik.com/api/profile/", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `token ${token}`
-      },
-      body: JSON.stringify(userData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("Profile updated:", data);
+fetch("https://engine.cocomatik.com/api/profile/", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `token ${token}`
+  },
+  body: JSON.stringify(userData)
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return response.json();
+})
+.then(data => {
+  console.log("Success:", data);
+})
+.catch(error => {
+  console.error("Error:", error);
+});
 
-      
-      // After updating, fetch the profile again to display
-      return fetch("https://engine.cocomatik.com/api/profile/", {
-        headers: {
-          "Authorization": `token ${token}`
-        }
-      });
-    })
-    .then(response => response.json())
-    .then(profile => {
-      console.log("Fetched profile:", profile);
-      const profileDiv = document.getElementById("profile");
-      profileDiv.innerHTML = `
-        <p><strong>Name:</strong> ${profile.name}</p>
-        <p><strong>Email:</strong> ${profile.email}</p>
-        <p><strong>Phone:</strong> ${profile.phone}</p>
-        <p><strong>Age:</strong> ${profile.age}</p>
-        <p><strong>Gender:</strong> ${profile.gender}</p>
-      `;
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      document.getElementById("profile").innerText = "Failed to load profile.";
-    });
   </script>
 </body>
 </html>
