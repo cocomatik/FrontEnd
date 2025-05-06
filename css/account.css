@@ -14,6 +14,21 @@
     --text: #4a4a4a;
     --background:white;
 }
+
+
+
+.content-section {
+    display: none;
+    padding: 20px;
+    color: var(--text);
+  }
+  
+  .content-section.active {
+    display: block;
+  }
+
+
+  
 body{
     background-color: rgb(229, 229, 229);
 }
@@ -165,12 +180,3 @@ align-items: center;
 
 
 
-.content-section {
-    display: none;
-    padding: 20px;
-    color: var(--text);
-  }
-  
-  .content-section.active {
-    display: block;
-  }

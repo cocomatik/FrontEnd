@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Account</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -98,12 +98,12 @@
 <div class="sidebar">
 
 <div class="user-about-box"><div class="user-photo-box"><img src="/data2/profile (1).png" width="70px" alt=""></div>
-<div class="user-name-box"><div>Hello,</div> <div id="userName">Adarsha Nanda</div></div>
+<div class="user-name-box"><div>Hello,</div> <div id="userName">User</div></div>
 </div>
 
-<div class="user-oder-box">
+<div class="user-oder-box" onclick="showSection('myOrder')">
 <div class="user-icon-box"><img src="/data2/package.png" width="40px" alt=""></div>
-<div class="user-text-box" onclick="showSection('myOrder')" >My Oder</div>
+<div class="user-text-box">My Oder</div>
 <div class="user-arrow-box"><i class='bx bx-chevron-right'></i></div>
 </div>
 
@@ -209,6 +209,7 @@
     
         </section>
 <script src="/js/main.js"></script>
+<script src="/js/a"></script>
 <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
