@@ -1,129 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard Page</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      display: flex;
-      height: 100vh;
-      font-family: sans-serif;
-      background-color: #121212;
-      color: white;
-    }
-
-    .sidebar {
-      width: 250px;
-      background-color: #1f1f1f;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .menu-item {
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .menu-item:hover {
-      background-color: #333;
-    }
-
-    .logout-btn {
-      margin-top: auto;
-      padding: 10px;
-      background-color: transparent;
-      border: 1px solid white;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .logout-btn:hover {
-      background-color: #ff4444;
-    }
-
-    .main-content {
-      flex: 1;
-      padding: 20px;
-      background-color: #1a1a1a;
-      overflow-y: auto;
-    }
-
-    .content-section {
-      display: none;
-    }
-
-    .content-section.active {
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-      }
-
-      .main-content {
-        height: calc(100vh - 100px);
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update & Show Profile</title>
 </head>
 <body>
-
-  <div class="sidebar">
-    <div class="menu-item" onclick="showSection('myOrder')">My Order</div>
-    <div class="menu-item" onclick="showSection('profile')">Profile</div>
-    <div class="menu-item" onclick="showSection('address')">Address</div>
-    <button class="logout-btn">Logout</button>
-  </div>
-
-  <div class="main-content">
-    <div id="myOrder" class="content-section active">
-      <h1>My Orders</h1>
-      <p>Yahaan aapke saare orders dikhenge. Kya baat hai!</p>
-    </div>
-
-    <div id="profile" class="content-section">
-      <h1>Profile</h1>
-      <p>Apka naam, email, aur sab details yahaan milenge. Bilkul saaf-suthra profile!</p>
-    </div>
-
-    <div id="address" class="content-section">
-    <h1>Address</h1>
-    <p>Jo bhi address aapne save kiye hain, wo yahaan dikh rahe hain. Safe aur secure.</p>
-    </div>
-  </div>
+  <h1>User Profile</h1>
+  <div id="profileview"></div>
 
   <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
+    const token = localStorage.getItem("authToken");
+    console.log("Token:", token);
 
-      const activeSection = document.getElementById(sectionId);
-      if (activeSection) {
-        activeSection.classList.add('active');
+    const userData = {
+      name: "adarsha",
+      email: "adarshananda51@gmail.com",
+      phone: "9556796603",
+      age: 22,
+      gender: "male"
+    };
+
+    // Update the profile using PUT
+    fetch("https://engine.cocomatik.com/api/profile/", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `token ${token}`
+      },
+      body: JSON.stringify(userData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    }
-  </script>
+      return response.json();
+    })
+    .then(data => {
+      console.log("Profile updated:", data);
 
+      
+      // After updating, fetch the profile again to display
+      return fetch("https://engine.cocomatik.com/api/profile/", {
+        headers: {
+          "Authorization": `token ${token}`
+        }
+      });
+    })
+    .then(response => response.json())
+    .then(profile => {
+      console.log("Fetched profile:", profile);
+      const profileDiv = document.getElementById("profile");
+      profileDiv.innerHTML = `
+        <p><strong>Name:</strong> ${profile.name}</p>
+        <p><strong>Email:</strong> ${profile.email}</p>
+        <p><strong>Phone:</strong> ${profile.phone}</p>
+        <p><strong>Age:</strong> ${profile.age}</p>
+        <p><strong>Gender:</strong> ${profile.gender}</p>
+      `;
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      document.getElementById("profile").innerText = "Failed to load profile.";
+    });
+  </script>
 </body>
-</html> 
+</html>

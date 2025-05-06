@@ -128,25 +128,63 @@
 </div>
 </div>
 
-
-
+<!-- /* .-------------main-content------------ */ -->
 
 <div class="main-content">
 
+    <div id="user" class="content-section ">
+    <h1>user detels</h1>
 
-    <div id="user" class="content-section active">
-        <h1>user detels</h1>
-      </div>
+    <div id="profileView"></div>
+    </div>
+<!-- ------------------ode---------------------- -->
+    <div id="myOrder" class="content-section  ">
+    <h1>My Orders</h1>
+    <p>Yahaan aapke saare orders dikhenge. Kya baat hai!</p>
+    </div>
+  <!-- ------------------profile---------------------- -->
 
-    <div id="myOrder" class="content-section">
-        <h1>My Orders</h1>
-        <p>Yahaan aapke saare orders dikhenge. Kya baat hai!</p>
-      </div>
+  <div id="profile" class="content-sectionactive">
+    <form class="form">
+      <p class="title">Edit profile</p>
+      <p class="message">change your account details</p>
   
-      <div id="profile" class="content-section">
-     <h1>my profile</h1>
-      </div>
+      <label>
+        <input required="" placeholder="" type="text" class="input" />
+        <span>Name</span>
+      </label>
   
+      <label>
+        <input required="" placeholder="" type="email" class="input" />
+        <span>Email</span>
+      </label>
+  
+      <label>
+        <input required="" placeholder="" type="number" class="input" />
+        <span>Phone</span>
+      </label>
+  
+      <label>
+        <input required="" placeholder="" type="number" class="input" />
+        <span>Age</span>
+      </label>
+  
+      <!-- Gender  buttons -->
+      <label class="select-label">
+        <select class="input select-input" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </label>
+  
+      <div class="submit" id="submitBtn">Submit</div>
+      <!-- <p class="signin">Already have an account</p> -->
+    </form>
+  </div>
+  
+    <!-- ------------------address---------------------- -->
+
       <div id="address" class="content-section">
       <h1>Address</h1>
       <p>Jo bhi address aapne save kiye hain, wo yahaan dikh rahe hain. Safe aur secure.</p>
