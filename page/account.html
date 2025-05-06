@@ -97,7 +97,7 @@
 
 <div class="sidebar">
 
-<div class="user-about-box"><div class="user-photo-box"><img src="/data2/profile (1).png" width="70px" alt=""></div>
+<div class="user-about-box" onclick="showSection('user')"><div class="user-photo-box"><img src="/data2/profile (1).png" width="70px" alt=""></div>
 <div class="user-name-box"><div>Hello,</div> <div id="userName">User</div></div>
 </div>
 
@@ -134,7 +134,11 @@
 <div class="main-content">
 
 
-    <div id="myOrder" class="content-section active">
+    <div id="user" class="content-section active">
+        <h1>user detels</h1>
+      </div>
+
+    <div id="myOrder" class="content-section">
         <h1>My Orders</h1>
         <p>Yahaan aapke saare orders dikhenge. Kya baat hai!</p>
       </div>
@@ -209,7 +213,7 @@
     
         </section>
 <script src="/js/main.js"></script>
-<script src="/js/a"></script>
+<script src="/js/account.js"></script>
 <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
