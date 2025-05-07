@@ -343,7 +343,7 @@ align-items: center;
   padding: 10px;
   overflow-y: auto; 
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
   background-color: gray;
 }
  */
