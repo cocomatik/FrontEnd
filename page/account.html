@@ -132,76 +132,152 @@
 
 <div class="main-content">
 
-  <div id="nnn" class="content-section"  >
-    <h1>Address</h1>
-    <p>Jo bhi address aapne save kiye hain, wo yahaan dikh rahe hain. Safe aur secure.</p>
-    </div> 
+  <div id="nnn"  class="content-section">
+    <div class="profile-header">
+        <div class="profile-icon"><i class="fas fa-user-edit"></i></div>
+        <h2>Edit Address</h2></div>
 
-    <div id="user" class="content-section  " >
-    <h1>user detels</h1>
+        <p class="subtitle">change your account details</p>
 
+        <form class="profile-form">
+            <div class="form-section">
+        
+            <h3>Personal Information</h3>
+            <div class="form-row">
+            <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="First Name">
+            </div>
+        
+            <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Last Name">
+            </div>
+            </div>
+        
+            <div class="form-row">
+            <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Phone" maxlength="10" minlength="1" pattern="\d{10}" required>
+            </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                <label for="firstName">State</label>
+                <input type="text" id="state" placeholder="State">
+                </div>
+            
+                <div class="form-group">
+                <label for="lastName">Pin code</label>
+                <input type="text" id="pincode" placeholder="Pin code">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                <label for="firstName">District</label>
+                <input type="text" id="district" placeholder="District">
+                </div>
+            
+                <div class="form-group">
+                <label for="lastName">Locality</label>
+                <input type="text" id="locality" placeholder="Locality">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                <label for="firstName">Street</label>
+                <input type="text" id="street" placeholder="Street">
+                </div>
+            
+                <div class="form-group">
+                <label for="lastName">House no</label>
+                <input type="text" id="houseNo" placeholder="House no">
+                </div>
+            </div>
+
+
+            </div>
+            <div class="form-actions">
+            <div type="button" class="cancel-btn">Cancel</div>
+            <div type="submit" class="submit-btn" id="ProfileChange">Save Changes</div>
+          </div>
+        <div id="msg"></div>
+        
+            </form>
+  </div> 
+ <!--- ------------------profileViewprofileView------------- -->
+    <div id="user" class="content-section" >
     <div id="profileView"></div>
     </div>
-<!-- ------------------ode---------------------- -->
-    <div id="myOrder" class="content-section">
+<!-- ------------------Orders---------------------- -->
+    <div id="myOrder" class="content-section active">
     <h1>My Orders</h1>
     <p>Yahaan aapke saare orders dikhenge. Kya baat hai!</p>
     </div>
   <!-- ------------------profile---------------------- -->
 
-<div id="profile" class="content-section ">
-  <div class="profile-header">
-    <div class="profile-icon"><i class="fas fa-user-edit"></i></div>
-    <h2>Edit profile</h2>
-</div>
-<p class="subtitle">change your account details</p>
+   <div id="profile" class="content-sectio  ">
+
+     <div class="profile-header">
+     <div class="profile-icon"><i class="fas fa-user-edit"></i></div>
+     <h2>Edit profile</h2></div>
+
+     <p class="subtitle">change your account details</p>
 
 <form class="profile-form">
     <div class="form-section">
-        <h3>Personal Information</h3>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" placeholder="Last Name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Email">
-        </div>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Phone" maxlength="10" minlength="1" pattern="\d{10}" required>
-            </div>
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" placeholder="Age" min="0">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select id="gender">
+
+    <h3>Personal Information</h3>
+    <div class="form-row">
+    <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" placeholder="First Name">
+    </div>
+
+    <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" placeholder="Last Name">
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Email">
+    </div>
+
+    <div class="form-row">
+    <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" placeholder="Phone" maxlength="10" minlength="1" pattern="\d{10}" required>
+    </div>
+
+    <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Age" min="0">
+    </div>
+
+    </div>
+    <div class="form-group">
+    <label for="gender">Gender</label>
+    <select id="gender">
                 <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
                 <option value="prefer-not">Prefer not to say</option>
-            </select>
-        </div>
+    </select>
+    </div>
   
     </div>
-
-
     <div class="form-actions">
-      <div type="button" class="cancel-btn">Cancel</div>
-      <div type="submit" class="submit-btn" id="ProfileChange">Save Changes</div>
+    <div type="button" class="cancel-btn">Cancel</div>
+    <div type="submit" class="submit-btn" id="ProfileChange">Save Changes</div>
   </div>
-  <div id="msg"></div>
+<div id="msg"></div>
 
     </form>
 
