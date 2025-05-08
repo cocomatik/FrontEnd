@@ -49,23 +49,10 @@
 
 
 /* account section */
-#user-profile-Container{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-}
-#user-profile-Box{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items:center ;
-    flex-direction: column;
-}
+#user-profile-Container{width: 100%;height: auto;display: flex;align-items: center;}
+#user-profile-Box{width: 100%;height: auto;display: flex;justify-content: center;align-items:center ;flex-direction: column;}
 
-.sidebar{
-    width: 100%;
+.sidebar{width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -104,6 +91,13 @@
     background-color: white;
 }
 
+.Street-Locality{
+    flex-direction: column;
+}
+#Street , #Locality
+{
+    padding: 20px 15px;
+}
 
 }
 

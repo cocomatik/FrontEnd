@@ -133,7 +133,7 @@
 
 <div class="main-content">
 
-  <div id="nnn"  class="content-section">
+  <div id="nnn"  class="content-section active">
     <div class="profile-header">
         <div class="profile-icon"><i class="fas fa-user-edit"></i></div>
         <h2>Edit Address</h2></div>
@@ -142,75 +142,91 @@
 
         <form class="profile-form">
             <div class="form-section">
-        
-            <h3>Personal Information</h3>
-            <div class="form-row">
-            <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text"  placeholder="First Name">
-            </div>
-        
-            <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text"  placeholder="Last Name">
-            </div>
-            </div>
-        
-            <div class="form-row">
-            <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" placeholder="Phone" maxlength="10" minlength="1" pattern="\d{10}" required>
-            </div>
-            </div>
+              <h3>Personal Information</h3>
+              
+              <!-- First Name & Last Name -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="FirstName">First Name</label>
+                  <input type="text" placeholder="First Name" id="FirstName">
+                </div>
+                <div class="form-group">
+                  <label for="LastName">Last Name</label>
+                  <input type="text" placeholder="Last Name" id="LastName">
+                </div>
+              </div>
+          
+              <!-- Phone Number -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="Phone">Phone Number</label>
+                  <input type="text" id="Phone" placeholder="Phone" maxlength="10" minlength="1" pattern="\d{10}" required>
+                </div>
+              </div>
+          
+              <!-- City -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="City">City</label>
+                  <input type="text" id="City" placeholder="City">
+                </div>
+              </div>
+          
+              <!-- State & Pincode -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="State">State</label>
+                  <input type="text" id="State" placeholder="State">
+                </div>
+                <div class="form-group">
+                  <label for="Pincode">Pin code</label>
+                  <input type="text" id="Pincode" placeholder="Pin code">
+                </div>
+              </div>
+          
+              <!-- District & housno -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="District">District</label>
+                  <input type="text" id="District" placeholder="District">
+                </div>
 
-            <div class="form-row">
                 <div class="form-group">
-                <label for="firstName">State</label>
-                <input type="text" id="state" placeholder="State">
-                </div>
-            
+                    <label for="HouseNo">House No</label>
+                    <input type="text" id="HouseNo" placeholder="House No">
+                  </div>
+             
+              </div>
+          
+              <!-- Street & Locality -->
+              <div class="form-row Street-Locality" >
                 <div class="form-group">
-                <label for="lastName">Pin code</label>
-                <input type="text" id="pincode" placeholder="Pin code">
+                  <label for="Street">Street</label>
+                  <input type="text" id="Street" placeholder="Street">
                 </div>
-            </div>
 
-            <div class="form-row">
                 <div class="form-group">
-                <label for="firstName">District</label>
-                <input type="text" id="district" placeholder="District">
-                </div>
-            
-                <div class="form-group">
-                <label for="lastName">Locality</label>
-                <input type="text" id="locality" placeholder="Locality">
-                </div>
+                    <label for="Locality">Locality</label>
+                    <input type="text" id="Locality" placeholder="Locality">
+                  </div>
+              </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                <label for="firstName">Street</label>
-                <input type="text" id="street" placeholder="Street">
-                </div>
-            
-                <div class="form-group">
-                <label for="lastName">House no</label>
-                <input type="text" id="houseNo" placeholder="House no">
-                </div>
-            </div>
-
-
-            </div>
+          
+            <!-- Form Actions -->
             <div class="form-actions">
-            <div type="button" class="cancel-btn">Cancel</div>
-            <div type="submit" class="submit-btn" id="addressChange">Save Changes</div>
-          </div>
-        <!-- <div id="msg"></div> -->
-        
-            </form>
+              <button type="button" class="cancel-btn">Cancel</button>
+              <button type="button" class="submit-btn" id="addressChange">Save Changes</button>
+            </div>
+          
+            <!-- Message Display -->
+            <div id="addressMsg"></div>
+          </form>
+          
+      
   </div> 
+
  <!--- ------------------profileViewprofileView------------- -->
-    <div id="user" class="content-section active" >
+    <div id="user" class="content-section " >
     <div id="profileView">
 
 
@@ -403,6 +419,7 @@
         </section>
 <script src="/js/main.js"></script>
 <script src="/js/account.js"></script>
+<script src="/js/address.js"></script>
 <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
