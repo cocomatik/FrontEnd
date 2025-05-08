@@ -1,28 +1,71 @@
-document.getElementById("age").addEventListener("input", function () {
-  if (this.value < 3) this.value = 3;
-});
-  document.getElementById("ProfileChange").addEventListener("click", function () {
-    let msg = document.getElementById("msg")
-    const token = localStorage.getItem("authToken"); // only the token is needed
 
-    if (!token) {
-      console.error("Auth token not found.");
-      alert("You're not logged in.");
-      return;
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("authToken");
+  const msg = document.getElementById("msg");
 
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
+  if (!token) {
+    alert("You're not logged in.");
+    window.location.href = "../index.html";
+    return;
+  }
 
+  // Set email (read-only) from localStorage
+  const storedEmail = localStorage.getItem("userEmail");
+  if (storedEmail) {
+    const emailInput = document.getElementById("email");
+    emailInput.value = storedEmail;
+    emailInput.readOnly = true;
+  }
+
+  // Prevent negative age input
+  document.getElementById("age").addEventListener("input", function () {
+    if (this.value < 0) this.value = 1;
+  });
+
+  // Logout
+  document.getElementById("logout").addEventListener("click", () => {
+    localStorage.clear();
+    window.location.href = "../index.html";
+  });
+
+  // Fetch and display profile data
+  fetch("https://engine.cocomatik.com/api/profile/", {
+    headers: { "Authorization": `token ${token}` }
+  })
+    .then(response => response.ok ? response.json() : Promise.reject(response))
+    .then(profile => {
+      const [firstName = "", lastName = ""] = profile.name?.split(" ") ?? [];
+      const fullName = `${firstName} ${lastName}`.trim();
+
+      // Fill form inputs
+      document.getElementById("firstName").value = firstName;
+      document.getElementById("lastName").value = lastName;
+      document.getElementById("phone").value = profile.phone || "";
+      document.getElementById("age").value = profile.age || "";
+      document.getElementById("gender").value = profile.gender || "";
+
+      // Display user data in separate fields
+      document.getElementById("userNAME").innerText = firstName;
+      document.getElementById("userName").innerText = fullName;
+      document.getElementById("userEmail").innerText = storedEmail || "N/A";
+      document.getElementById("userPhone").innerText = profile.phone || "";
+      document.getElementById("userAge").innerText = profile.age || "";
+      document.getElementById("userGender").innerText = profile.gender || "";
+    })
+    .catch(error => {
+      console.error("Error loading profile:", error);
+      document.getElementById("userName").innerText = "Failed to load profile.";
+    });
+
+  // Handle profile update
+  document.getElementById("ProfileChange").addEventListener("click", () => {
     const userData = {
-      name: `${firstName} ${lastName}`,
-      email: document.getElementById("email").value,
+      name: `${document.getElementById("firstName").value} ${document.getElementById("lastName").value}`.trim(),
       phone: document.getElementById("phone").value,
       age: document.getElementById("age").value,
       gender: document.getElementById("gender").value
     };
 
-    // Send updated profile data directly
     fetch("https://engine.cocomatik.com/api/profile/", {
       method: "PUT",
       headers: {
@@ -31,134 +74,19 @@ document.getElementById("age").addEventListener("input", function () {
       },
       body: JSON.stringify(userData)
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("Profile updated successfully:", data);
-      msg.innerHTML="Profile updated successfully!"
-      msg.style.color="green"
-      setTimeout(() => {
-        location.reload();
-      }, 1500);
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      msg.innerHTML="Failed to update profile."
-      msg.style.color="red"
-
-      setTimeout(() => {
-        location.reload();
-      }, 1500);
-    });
-  });
-
-
-
-
-
-
-
-
-  
-
-
-
-
-let logout = document.getElementById("logout")
-logout.addEventListener("click",function(){
-    localStorage.clear();
-    window.location.href = "../index.html";
-})
-document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("authToken");
-  console.log("Token:", token);
-
-  // Get the email from localStorage and set it in the email input field
-  const storedEmail = localStorage.getItem("userEmail");
-  if (storedEmail) {
-    document.getElementById("email").value = storedEmail;
-    document.getElementById("email").readOnly = true;
-  }
-
-  // Fetch Profile Data and Auto-fill Form Inputs
-  fetch("https://engine.cocomatik.com/api/profile/", {
-    headers: {
-      "Authorization": `token ${token}`
-    }
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(profile => {
-      console.log("Fetched profile:", profile);
-
-      const [firstName = "", lastName = ""] = profile.name?.split(" ") ?? [];
-
-      document.getElementById("firstName").value = firstName;
-      document.getElementById("lastName").value = lastName;
-      document.getElementById("phone").value = profile.phone || "";
-      document.getElementById("age").value = profile.age || "";
-      document.getElementById("gender").value = profile.gender || "";
-
-      document.getElementById("userName").innerHTML=firstName;
-      const profileDiv = document.getElementById("profileView");
-      if (profileDiv) {
-        profileDiv.innerHTML = `
-          <p><strong>Name:</strong> ${profile.name}</p>
-          <p><strong>Email:</strong> ${storedEmail || "N/A"}</p>
-          <p><strong>Phone:</strong> ${profile.phone}</p>
-          <p><strong>Age:</strong> ${profile.age}</p>
-          <p><strong>Gender:</strong> ${profile.gender}</p>
-        `;
-      }
-    })
-    .catch(error => {
-      console.error("Error loading profile:", error);
-      const profileDiv = document.getElementById("profileView");
-      if (profileDiv) {
-        profileDiv.innerText = "Failed to load profile.";
-      }
-    });
-
-  // Save Profile Data (excluding email) to API
-  document.getElementById("ProfileChange").addEventListener("click", function () {
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-
-    const profileData = {
-      name: `${firstName} ${lastName}`.trim(),
-      phone: document.getElementById("phone").value,
-      age: document.getElementById("age").value,
-      gender: document.getElementById("gender").value
-    };
-
-    fetch("https://engine.cocomatik.com/api/profile/", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `token ${token}`
-      },
-      body: JSON.stringify(profileData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("Profile updated successfully:", data);
-     
-    })
-    .catch(error => {
-      console.error("Error updating profile:", error);
-    });
+      .then(response => response.ok ? response.json() : Promise.reject(response))
+      .then(data => {
+        console.log("Profile updated successfully:", data);
+        msg.innerText = "Profile updated successfully!";
+        msg.style.color = "green";
+        setTimeout(() => location.reload(), 1500);
+      })
+      .catch(error => {
+        console.error("Error updating profile:", error);
+        msg.innerText = "Failed to update profile.";
+        msg.style.color = "red";
+        setTimeout(() => location.reload(), 1500);
+      });
   });
 });
+
