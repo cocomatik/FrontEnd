@@ -38,6 +38,7 @@
 
 
 /* cart box */
+.item-box {height: 150px;}
 .item-box {flex-direction: column;height: auto; border-radius: 10px;}
 .Img-Details-Box{width: 100%;}
 #itemImgBox{width: 40%;}
@@ -45,6 +46,8 @@
 #itemNAme{font-size: 20px;}
 #itemDetail{font-size: 15px;}
 #itemPriceBox{width: 100%;padding: 10px;flex-direction: row;align-items: space-around; }
+#placeOder{font-size: 15px; padding: 5px;}
+.Cart-total{font-size: 15px; gap: 5px;}
 
 
 
