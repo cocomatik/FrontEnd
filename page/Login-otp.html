@@ -6,6 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/login-otp.css">
+    <link rel="stylesheet" href="/css/responship.css">
     <title>Login-Otp</title>
 </head>
 <!-- login-otp-page conttener -->
@@ -16,29 +17,51 @@
 
         <div class="add-box">
 
-          <div class="add-text-box">
-          <div class="add-text1">Login</div>
-          <div class="add-text2">Connect with AUS in just one click Login now!</div>
-          </div>
+     
 
-          <div class="add-gif-box">
-          <img class="login-gif" src="/data/login.gif"  width="200px" alt="">
-          </div>
-
+            <div class="brand">
+                <h1>Luxe Beauty</h1>
+                <p>Experience luxury beauty and jewelry products with just one click away.</p>
+            </div>
+            
+            <div class="illustration">
+                <div class="illustration-container">
+                    <div class="product-icons">
+                        <div class="product">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div class="product">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="product">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
         <div class="email-box">
         <div class="back-icon-box"><i class='bx bx-x'></i></div>
+
         <div class="wrapper">
+
+                  <div class="login-header">
+                <h2>Welcome Back</h2>
+                <p>Please enter your email to continue</p>
+        </div>
             <form id="emailForm">
 
-                <div class="input-field">
-                    <input type="email" id="email" name="email" required>
-                <label>Email</label>
+              <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-with-icon">
+                    <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                    <i class="far fa-envelope"></i>
+                </div>
                 </div>
             
-                <button id="loginBtn" type="submit">Send Request</button>
+                <button id="loginBtn" class="btn" type="submit">Send Request</button>
 
                 <p id="alertMsg"></p>
                 </form>
@@ -93,23 +116,34 @@
  <!-- ---------------------OTP login page-------------------------- -->
  <section id="OtpLoginBox">
     <div class="add-box">
-
-        <div class="add-text-box">
-        <div class="add-text1">OTP</div>
-        <div class="add-text2">Connect with AUS in just one click Login now!</div>
+            <div class="brand">
+                <h1>Luxe Beauty</h1>
+                <p>We've sent a verification code to your email. Please check your inbox.</p>
+            </div>
+              <div class="illustration">
+                <div class="illustration-container">
+                    <div class="product-icons">
+                        <div class="product">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div class="product">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="product">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="add-gif-box">
-        <img class="login-gif" src="/data/otp-logo.gif"  width="200px" alt="">
-        </div>
-
-      </div>
-
-
 
       <div class="otp-box">
-
         <div class="otp-input-box">
+              <div class="otp-header">
+                <h2>Verification Code</h2>
+                <p>Please enter the 4-digit verification code sent to 
+                <p> <div id="EmailIdGet"></div></strong></p>
+            </div>
             <div class="otp-enter-box">
                 <div class="otp-inputs">
                     <input type="number" maxlength="1" required>
@@ -121,7 +155,6 @@
                 </div>
              
             </div>
-            <div class="emailid-show-box"> <div>Email:</div> <div id="EmailIdGet"></div> <div id="editEmail"><i class='bx bxs-edit-alt'></i></div></div>
             <p id="alertMsg"></p>
             <div class="buttons">
                 <button id="backButton">Back</button>

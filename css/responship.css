@@ -8,6 +8,7 @@
 .add-container2{padding: 5px;gap: 10px;}
 .add-box{width:45%;height: 200px;}
 
+
 /* ccosmetics page */
 .search-box{display: none;}
 .InputContainer{width: 90%;height: 80%;border-radius: 10px;}
@@ -54,30 +55,10 @@
 /* account section */
 #user-profile-Container{width: 100%;height: auto;display: flex;align-items: center;}
 #user-profile-Box{width: 100%;height: auto;display: flex;justify-content: center;align-items:center ;flex-direction: column;}
+.sidebar{width: 100%; height: auto;display: flex;justify-content: center; align-items: center;  }
+.user-about-box{height: auto;padding: 10px; display: flex;justify-content: center;align-items: center;flex-direction: column;gap: 10px;}
 
-.sidebar{width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-}
-
-.user-about-box{
-    height: auto;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.user-name-box{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.user-name-box{width: 100%;display: flex;justify-content: center;align-items: center;}
 .user-icon-box img{ width: 20px;}
 .user-icon-box{width: 15%;}
 .user-text-box{width: 70%; font-size: 15px;}
@@ -86,24 +67,22 @@
 .user-ac-mange{font-size: 15px;}
 .user-Logout-box , .user-oder-box{padding: 15px 0px;}
 
+.main-content{width: 100%; height: 100vh;background-color: white;}
+.Street-Locality{flex-direction: column;}
+#Street , #Locality{padding: 20px 15px;}}
 
 
-.main-content{
-    width: 100%;
-    height: 100vh;
-    background-color: white;
+@media only screen and (max-width: 950px) {
+#EmailLoginBox , #OtpLoginBox{width: 100%;height: 100vh;flex-direction: column;}
+.add-box{width: 100%;height: 40%;display: flex;align-items: start;justify-content: start;box-shadow:none;overflow: hidden;}
+.email-box ,.otp-box{width: 100%;height: 60%}
+.brand{height: 40%; }
+.brand  h1{font-size: 20px;}
+.brand p{font-size: 15px;}
+.illustration{margin-top: 0px;padding: 10px;height: 30%;}
+.illustration-container {width: 150px;height: 150px;}
+.term-privacy-box{font-size: 10px;}
+.otp-header h2{font-size: 15px;text-align: center;}
+.otp-header p{font-size: 12px;text-align: center;}
+.otp-inputs input {width: 40px;height: 40px;}
 }
-
-.Street-Locality{
-    flex-direction: column;
-}
-#Street , #Locality
-{
-    padding: 20px 15px;
-}
-
-}
-
-
-
-

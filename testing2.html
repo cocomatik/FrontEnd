@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Beauty & Gems - OTP Verification</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .otp-container {
+            width: 900px;
+            height: 550px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .left-panel {
+            width: 45%;
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff758c 100%);
+            padding: 50px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+        }
+        
+        .left-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="75" cy="75" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="75" cy="25" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="25" cy="75" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.3)"/></svg>');
+            opacity: 0.6;
+        }
+        
+        .brand {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .brand p {
+            font-size: 14px;
+            opacity: 0.9;
+            max-width: 80%;
+            line-height: 1.6;
+        }
+        
+        .illustration {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .illustration-container {
+            background: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mail-icon {
+            font-size: 80px;
+            color: #ff758c;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .right-panel {
+            width: 55%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .otp-header {
+            margin-bottom: 40px;
+        }
+        
+        .otp-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .otp-header p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .otp-form {
+            margin-bottom: 30px;
+        }
+        
+        .otp-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .otp-input {
+            width: 60px;
+            height: 70px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            background-color: #f9f9f9;
+            transition: all 0.3s;
+        }
+        
+        .otp-input:focus {
+            border-color: #ff758c;
+            box-shadow: 0 0 0 3px rgba(255, 117, 140, 0.2);
+            outline: none;
+            background-color: #fff;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .resend {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .resend p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .resend-btn {
+            background: none;
+            border: none;
+            color: #ff758c;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .resend-btn:hover {
+            color: #ff5c7c;
+            text-decoration: underline;
+        }
+        
+        .timer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .timer i {
+            margin-right: 5px;
+            color: #ff758c;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+        }
+        
+        .footer a {
+            color: #ff758c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #333;
+        }
+        
+        @media (max-width: 900px) {
+            .otp-container {
+                width: 95%;
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .left-panel, .right-panel {
+                width: 100%;
+                padding: 30px;
+            }
+            
+            .left-panel {
+                padding-bottom: 50px;
+            }
+            
+            .illustration-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .mail-icon {
+                font-size: 60px;
+            }
+            
+            .otp-inputs {
+                gap: 10px;
+            }
+            
+            .otp-input {
+                width: 50px;
+                height: 60px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="otp-container">
+        <button class="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="left-panel">
+            <div class="brand">
+                <h1>Luxe Beauty</h1>
+                <p>We've sent a verification code to your email. Please check your inbox.</p>
+            </div>
+            
+            <div class="illustration">
+                <div class="illustration-container">
+                    <i class="far fa-envelope mail-icon"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="otp-header">
+                <h2>Verification Code</h2>
+                <p>Please enter the 4-digit verification code sent to <strong>your.email@example.com</strong></p>
+            </div>
+            
+            <form class="otp-form">
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" autofocus>
+                    <input type="text" class="otp-input" maxlength="1">
+                    <input type="text" class="otp-input" maxlength="1">
+                    <input type="text" class="otp-input" maxlength="1">
+                </div>
+                
+                <button type="submit" class="btn">Verify & Continue</button>
+            </form>
+            
+            <div class="resend">
+                <p>Didn't receive the code?</p>
+                <button class="resend-btn">Resend Code</button>
+                
+                <div class="timer">
+                    <i class="far fa-clock"></i>
+                    <span>Resend available in <strong>59</strong> seconds</span>
+                </div>
+            </div>
+            
+            <div class="footer">
+                Having trouble? <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-focus to next input when a digit is entered
+        const inputs = document.querySelectorAll('.otp-input');
+        
+        inputs.forEach((input, index) => {
+            input.addEventListener('keyup', function(e) {
+                // If the key isn't a number, clear the input
+                if (!/^\d*$/.test(this.value)) {
+                    this.value = '';
+                    return;
+                }
+                
+                if (this.value.length === this.maxLength) {
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    } else {
+                        this.blur(); // Remove focus if it's the last input
+                    }
+                }
+            });
+            
+            // Handle backspace
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+            
+            // Handle paste
+            input.addEventListener('paste', function(e) {
+                e.preventDefault();
+                const pasteData = e.clipboardData.getData('text').slice(0, inputs.length);
+                
+                if (/^\d+$/.test(pasteData)) {
+                    for (let i = 0; i < pasteData.length; i++) {
+                        if (index + i < inputs.length) {
+                            inputs[index + i].value = pasteData[i];
+                            
+                            if (index + i === inputs.length - 1) {
+                                inputs[index + i].blur();
+                            } else {
+                                inputs[index + i + 1].focus();
+                            }
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Countdown timer
+        let seconds = 59;
+        const timerElement = document.querySelector('.timer strong');
+        const resendBtn = document.querySelector('.resend-btn');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            timerElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                resendBtn.style.opacity = '1';
+                resendBtn.disabled = false;
+                document.querySelector('.timer').style.display = 'none';
+            }
+        }, 1000);
+        
+        // Disable resend button initially
+        resendBtn.style.opacity = '0.5';
+        resendBtn.disabled = true;
+        
+        // Resend button click handler
+        resendBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                // Simulate resending code
+                this.textContent = 'Sending...';
+                
+                setTimeout(() => {
+                    this.textContent = 'Resend Code';
+                    this.style.opacity = '0.5';
+                    this.disabled = true;
+                    
+                    // Reset timer
+                    seconds = 59;
+                    timerElement.textContent = seconds;
+                    document.querySelector('.timer').style.display = 'flex';
+                    
+                    // Restart countdown
+                    const newCountdown = setInterval(() => {
+                        seconds--;
+                        timerElement.textContent = seconds;
+                        
+                        if (seconds <= 0) {
+                            clearInterval(newCountdown);
+                            resendBtn.style.opacity = '1';
+                            resendBtn.disabled = false;
+                            document.querySelector('.timer').style.display = 'none';
+                        }
+                    }, 1000);
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
