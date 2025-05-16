@@ -29,20 +29,19 @@ jobs:
             --exclude=".git/" \
             --exclude=".github/" \
             --exclude="README.md" \
-            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.VPS_PATH }}
+            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/dev/COCOMATIK/FrontEnd2
           echo "✅ Deployment complete."
 
       - name: 📝 Log & Reload Nginx on VPS
         run: |
           TIMESTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
-          UNIQUE_ID=$(openssl rand -hex 8)  # Unique identifier for the log file name
-          LOG_PATH="/home/dev/COCOMATIK/FrontEnd/logs/deployment_${UNIQUE_ID}.log"
-          
+          UNIQUE_ID=$(openssl rand -hex 8)
+          LOG_PATH="/home/dev/COCOMATIK/FrontEnd2/logs/deployment_${UNIQUE_ID}.log"
+
           echo "🗂️ Logging deployment details to $LOG_PATH..."
 
-          # Single-line SSH command
           ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "mkdir -p /home/dev/COCOMATIK/FrontEnd/logs && \
+            "mkdir -p /home/dev/COCOMATIK/FrontEnd2/logs && \
             echo '----- Deployment at $TIMESTAMP -----' | tee -a $LOG_PATH && \
             echo 'Deployed from GitHub Actions' | tee -a $LOG_PATH && \
             echo 'Restarting Nginx...' | tee -a $LOG_PATH && \
