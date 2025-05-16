@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOMATIK - Payment Method</title>
+    <link rel="stylesheet" href="/css/cart/payment.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="/index.html" class="logo">
+            <img src="/assets/data/logo.png" alt="">
+        </a>
+    </header>
+    <!-- Checkout Header -->
+
+    <!-- Checkout Progress -->
+    <div class="checkout-progress">
+
+        <div class="progress-step">
+            <div class="step-number completed">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="step-label">Shipping</div>
+            <div class="progress-line completed"></div>
+        </div>
+
+        <div class="progress-step">
+            <div class="step-number active">2</div>
+            <div class="step-label active">Payment</div>
+            <div class="progress-line active"></div>
+        </div>
+
+        <div class="progress-step">
+            <div class="step-number">3</div>
+            <div class="step-label">Confirmation</div>
+            <div class="progress-line"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="checkout-container">
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <h2 class="section-title">Payment Method</h2>
+
+                <div class="shipping-info">
+                    <div class="info-header">
+                        <span class="info-title">Shipping to:</span>
+                        <a href="checkout.html" class="change-link">Change</a>
+                    </div>
+                    <div class="info-details">
+
+                    </div>
+                </div>
+
+               
+                <div class="payment-methods">
+                    <!-- UPI Payment -->
+                    <div class="payment-method">
+                        <div class="payment-method-header">
+                            <input type="radio" name="payment" id="upi">
+                            <label for="upi" class="payment-method-name">Payment Gateway Online</label>
+                            <div class="payment-method-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <div class="payment-method-content">
+                            <div class="form-group">
+                                <label class="form-label" for="upiId">UPI ID</label>
+                                <input type="text" class="form-control" id="upiId" placeholder="username@upi">
+                            </div>
+                            <p style="color: #666; margin-bottom: 15px;">You will receive a payment request on your UPI
+                                app.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cash on Delivery -->
+                    <div class="payment-method">
+                        <div class="payment-method-header">
+                            <input type="radio" name="payment" id="cod">
+                            <label for="cod" class="payment-method-name">Cash on Delivery</label>
+                            <div class="payment-method-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                        </div>
+                        <div class="payment-method-content">
+                            <p style="color: #666; margin-bottom: 15px;">Pay with cash upon delivery. Please keep exact
+                                change handy.</p>
+                            <p style="color: #e08080;"><i class="fas fa-info-circle"></i> Additional fee of ₹50 applies
+                                for Cash on Delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            <p class="shipping-note">
+                <i class="fas fa-truck"></i> Cash on delivery will cost extra ₹50 ! Go Online
+                applies.
+            </p>
+                <div class="navigation-buttons">
+                    <a href="/pages/cart/checkout.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Shipping
+                    </a>
+                    <a href="#" class="btn">
+                        Pay Here <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="" class="btn">
+                        Place Order  <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2 class="section-title">Order Summary</h2>
+
+                <div class="order-items">
+                    <!-- Item 1 -->
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            <img src="https://via.placeholder.com/60" alt="Coconut Oil">
+                            <span class="item-quantity">1</span>
+                        </div>
+                        <div class="order-item-details">
+                            <h4 class="order-item-name">Coconut Oil - Premium Cold Pressed</h4>
+                            <p class="order-item-price">₹499</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            <img src="https://via.placeholder.com/60" alt="Coconut Scrub">
+                            <span class="item-quantity">2</span>
+                        </div>
+                        <div class="order-item-details">
+                            <h4 class="order-item-name">Coconut Scrub - Exfoliating</h4>
+                            <p class="order-item-price">₹698</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            <img src="https://via.placeholder.com/60" alt="Coconut Milk Shampoo">
+                            <span class="item-quantity">1</span>
+                        </div>
+                        <div class="order-item-details">
+                            <h4 class="order-item-name">Coconut Milk Shampoo</h4>
+                            <p class="order-item-price">₹399</p>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="summary-row">
+                    <span class="summary-label">Subtotal</span>
+                    <span class="summary-value">₹0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="summary-label">Shipping Charges</span>
+                    <span class="summary-value summary-shipping">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">COD Charges</span>
+                    <span class="summary-value summary-shipping">₹0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="summary-label">Tax</span>
+                    <span class="summary-value">₹0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span class="summary-label">Total in Product Discount</span>
+                    <span class="summary-value">₹0</span>
+                </div>
+
+                <div class="summary-row summary-total">
+                    <span class="summary-label">Total</span>
+                    <span class="summary-value">₹0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/cart/payment.js"></script>
+</body>
+
+</html>
