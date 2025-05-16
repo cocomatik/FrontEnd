@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOMATIK - My Orders</title>
+    <link rel="stylesheet" href="/css/orders/orders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Main Content Container -->
+     <header class="header">
+        <a href="/index.html" class="logo">
+            <img src="/assets/data/logo.png" alt="">
+        </a>
+    </header>
+    <div class="container">
+        <div id="sidebar-container"></div>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <h1 class="page-title">My Orders</h1>
+            <p class="page-subtitle">All Orders at One Place <br>All Pending Orders can be Cancelled with in 2 Hours.
+                Aprooved Order Cancellation,Return,Exchange related query can be contacted through Customer Care. </p>
+
+            <div class="order-list">
+
+
+            </div>
+            <div class="empty-orders" style="display: none;"">
+                <i class="fas fa-box-open"></i>
+                <h3>No Orders Yet</h3>
+                <p>Looks like you haven't placed any orders yet.</p>
+                <a href="/index.html" class="btn btn btn-secondary btn-sm order-details-btn" style="background-color: #e08080;">Start Shopping</a>
+            </div>
+        </main>
+    </div>
+    <script src="/js/orders/orders.js"></script>
+   
+    <script src="/js/accounts/sidebar.js"></script>
+</body>
+
+</html>
